@@ -12,6 +12,7 @@ use Webkul\Core\Http\Middleware\SecureHeaders;
 use Webkul\Installer\Http\Middleware\CanInstall;
 
 return Application::configure(basePath: dirname(__DIR__))
+    ->withProviders(require __DIR__.'/providers.php')
     ->withRouting(
         web: __DIR__.'/../routes/web.php',
         commands: __DIR__.'/../routes/console.php',
@@ -32,7 +33,9 @@ return Application::configure(basePath: dirname(__DIR__))
          * then remove this line.
          */
         $middleware->remove(ConvertEmptyStringsToNull::class);
-
+$middleware->validateCsrfTokens(except: [
+    '/razorpaycheck',
+]);
         $middleware->append(SecureHeaders::class);
         $middleware->append(CanInstall::class);
 

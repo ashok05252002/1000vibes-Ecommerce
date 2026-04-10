@@ -45,7 +45,8 @@
         "shetabit/visitor": "^4.1",
         "spatie/laravel-responsecache": "^7.4",
         "spatie/laravel-sitemap": "^7.3",
-        "stevebauman/purify": "^6.3"
+        "stevebauman/purify": "^6.3",
+        "vfixtechnology/bagisto-razorpay": "^1.0"
     },
     "require-dev": {
         "bagisto/laravel-datafaker": "2.3.*",

@@ -12,21 +12,7 @@
                 />
             </x-shop::form.control-group>
 
-            <!-- Company Name -->
-            <x-shop::form.control-group>
-                <x-shop::form.control-group.label>
-                    @lang('shop::app.checkout.onepage.address.company-name')
-                </x-shop::form.control-group.label>
 
-                <x-shop::form.control-group.control
-                    type="text"
-                    ::name="controlName + '.company_name'"
-                    ::value="address.company_name"
-                    :placeholder="trans('shop::app.checkout.onepage.address.company-name')"
-                />
-            </x-shop::form.control-group>
-
-            {!! view_render_event('bagisto.shop.checkout.onepage.address.form.company_name.after') !!}
 
             <!-- First Name -->
             <div class="grid grid-cols-2 gap-x-5 max-md:grid-cols-1">
@@ -315,7 +301,7 @@
                         last_name: '',
                         email: '',
                         address: [],
-                        country: '',
+                        country: 'IN',
                         state: '',
                         city: '',
                         postcode: '',
@@ -326,7 +312,7 @@
 
             data() {
                 return {
-                    selectedCountry: this.address.country,
+                    selectedCountry: this.address.country || 'IN',
 
                     countries: [],
 
